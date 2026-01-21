@@ -1,0 +1,91 @@
+# Author: Dhaval Patel. Codebasics YouTube Channel
+
+Default Welcome Intent
+======================
+Text response:  Selam, How can I help you? You can say "New Order" or "Track Order"
+				Good day! What can I do for you today? You can say "New Order" or "Track Order"
+				Greetings! How can I assist? You can say "New Order" or "Track Order"
+
+				
+Default Fallback Intent
+========================
+Text Response: I didn't understand. You can say 'New Order' or 'Track Order'. Also, in a new order, please mention only items from our available menu: Doro Wat, Kitfo, Beyaynetu, Shiro Wat, Tibs, Gomen, and Firfir. Also specify a quantity for each item for example: "One beyaynetu and 2 Firfir"				
+
+
+Intent= new.order
+=================
+new order
+Place new order
+
+	Text Response = 
+		Ok, starting a new order.. You can say things like "I want two Doro Wats and one Kitfo".. Make sure to specify a quantity for every food item!. We have the following items on our menu: Doro Wat, Kitfo, Beyaynetu, Shiro Wat, Tibs, Gomen, and Firfir..
+
+
+		Starting new order. Specify food items and quantities. For example, you can say, "I would like to order two Doro wat and one shiro. Also, we have only the following items on our menu: Doro Wat, Kitfo, Beyaynetu, Shiro Wat, Tibs, Gomen, and Firfir..
+
+Intent= order.add - context: ongoing-order
+==========================================
+Give me 2 plates of Doro Wat, one Beyaynetu.
+
+I'd like to order two plates of Doro Wat, one Kitfo, and 3 Shiro Wat, please.
+
+Can you please get me two servings of Tibs and one Gomen?.
+
+3 Firfir, 2 Shiro, 1 Kitfo.
+
+In addition, add 1 Firfir and 2 Kitfos.
+
+Moreover, include 2 Doro Wats.
+
+Also, please give me 2 Beyaynetu.
+
+2 Tibs and ok let's add one Shiro too.
+
+Intent= order.complete - context: ongoing-order
+==========================================
+Nope
+That's all I needed
+Done ordering it
+Place an order
+Done
+That's it
+
+Intent= order.remove - context: ongoing-order
+==========================================
+No Doro Wat and Kitfo in my order, please remove..
+
+Kindly take Shiro and Gomen off the order, please.
+
+I no longer want the Firfir in my order, please remove it.
+
+I would like to remove the Tibs from my order.
+
+Delete Doro Wat from my order.
+
+Hey, plz get rid of Firfir and Shiro.
+
+Intent= track.order
+===================
+
+check the status of my order
+track order
+track existing order
+
+Text response:
+	Definitely. What is your order id?
+	Sure. Please enter your order id.
+	Definitely. What is your order id?
+
+
+Intent= track.order - context: ongoing-tracking
+==================================================
+how about 32
+how about 40?
+here it is - 63321
+here you go: 123
+here is my order number 675
+id is 453
+here is my order id # 341
+7890
+123
+345
