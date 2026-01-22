@@ -3,13 +3,25 @@ import mysql.connector
 # Database Configuration
 db_config = {
     'host': 'localhost',
+    'port': 3306,
     'user': 'root',
     'password': '@Muhe0915',
     'database': 'habesha_bites'
 }
 
 def get_db_connection():
+    """Get database connection"""
     return mysql.connector.connect(**db_config)
+
+def test_connection():
+    """Test database connection"""
+    try:
+        connection = get_db_connection()
+        connection.close()
+        return True
+    except Exception as e:
+        print(f"Database connection error: {e}")
+        return False
 
 def get_item_id_and_price(food_name):
     """Retrieves item_id and price for a specific food name."""
@@ -85,3 +97,31 @@ def get_order_status(order_id):
     except Exception as e:
         print(f"Error in get_order_status: {e}")
         return None
+
+def get_total_orders():
+    """Get total number of orders"""
+    try:
+        connection = get_db_connection()
+        cursor = connection.cursor()
+        cursor.execute("SELECT COUNT(*) FROM orders")
+        result = cursor.fetchone()
+        cursor.close()
+        connection.close()
+        return result[0] if result else 0
+    except Exception as e:
+        print(f"Error in get_total_orders: {e}")
+        return 0
+
+def get_menu_count():
+    """Get total number of menu items"""
+    try:
+        connection = get_db_connection()
+        cursor = connection.cursor()
+        cursor.execute("SELECT COUNT(*) FROM food_items")
+        result = cursor.fetchone()
+        cursor.close()
+        connection.close()
+        return result[0] if result else 0
+    except Exception as e:
+        print(f"Error in get_menu_count: {e}")
+        return 0
